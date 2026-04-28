@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"console.log\\(process.arch, process.platform\\)\")",
+      "PowerShell($dlls = @\\('vcruntime140.dll','vcruntime140_1.dll','msvcp140.dll'\\); foreach \\($d in $dlls\\) { $p = \"$env:SystemRoot\\\\System32\\\\$d\"; if \\(Test-Path $p\\) { \"OK  $d\" } else { \"MISSING  $d\" } })"
+    ]
+  }
+}
