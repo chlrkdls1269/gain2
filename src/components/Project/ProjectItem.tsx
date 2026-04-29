@@ -2,6 +2,7 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import Gallery from "../Gallery";
 import Links from "./Links";
 
 import { ProjectProps } from "@/types";
@@ -11,10 +12,13 @@ const ProjectItem = ({
   description,
   repoUrl,
   webUrl,
+  appStoreUrl,
+  playStoreUrl,
   period,
   stack,
   markdown,
   imgSrc,
+  gallery,
 }: ProjectProps) => {
   return (
     <div className="flex flex-col md:flex-row gap-2 md:gap-0">
@@ -31,23 +35,28 @@ const ProjectItem = ({
           )}
           <div className="flex flex-col gap-2">
             <div className="w-48">
-              <h3>{name}</h3>
+              <h3 className="text-2xl">{name}</h3>
               <div className="flex flex-col">
                 <span>{`${period[0]} - ${period[1]}`}</span>
               </div>
             </div>
-            <Links repoUrl={repoUrl} webUrl={webUrl} />
+            <Links
+              repoUrl={repoUrl}
+              webUrl={webUrl}
+              appStoreUrl={appStoreUrl}
+              playStoreUrl={playStoreUrl}
+            />
           </div>
         </div>
       </div>
       <div className="md:border-GRAY_LIGHT md:border-solid md:border-l-[1px] md:pl-4 markdown flex flex-col w-full gap-2">
         <div>
           <blockquote className="whitespace-pre-wrap">{`${description}`}</blockquote>
-          <div className="flex gap-1 flex-wrap">
+          <div className="flex flex-wrap gap-1.5 mb-4">
             {stack.map((stack) => (
               <span
                 key={stack}
-                className=" bg-BLACK dark:bg-white  py-[2px] px-1.5 rounded-md text-xs font-medium font-mono whitespace-nowrap text-white dark:text-BLACK"
+                className="text-xs font-medium text-[#0064FF] bg-[#e8f4ff] py-1 px-3 rounded-md whitespace-nowrap"
               >
                 {stack}
               </span>
@@ -55,6 +64,7 @@ const ProjectItem = ({
           </div>
         </div>
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown ?? ""}</ReactMarkdown>
+        <Gallery images={gallery} />
       </div>
     </div>
   );

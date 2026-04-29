@@ -1,14 +1,15 @@
 {
   "resumeTitle": {
-    "title": "Hong Gil Dong"
+    "title": "Ga-In Choi"
   },
 
   "information": {
     "name": "최가인",
     "contact": [
-      { "id": 0, "name": "Email", "href": "honggildong@gmail.com", "isEmail": true },
-      { "id": 1, "name": "Github", "href": "https://github.com/honggildong" },
-      { "id": 2, "name": "Blog", "href": "https://velog.io/@honggildong" }
+      { "id": 0, "name": "Email", "href": "carrier1269@naver.com", "isEmail": true },
+      { "id": 1, "name": "Github", "href": "https://github.com/carrier1269" },
+      { "id": 2, "name": "LinkedIn", "href": "https://linkedin.com/in/chlrkdls1269" },
+      { "id": 3, "name": "Blog", "href": "https://chlrkdls1269.tistory.com" }
     ]
   },
 
@@ -16,7 +17,8 @@
     {
       "id": 0,
       "name": "메타넷디지털",
-      "position": "Fullstack Engineer",
+      "description": "Modern Factory 팀 · 백엔드 개발자",
+      "position": "사원 / 백엔드 개발자",
       "period": ["2024. 02", "재직중"],
       "imgSrc": "/company/md.jpg"
     }
@@ -25,104 +27,155 @@
   "project": [
     {
       "id": 0,
-      "name": "Soundok",
-      "description": "플레이리스트 기반 음악 소셜 플랫폼",
-      "webUrl": "https://github.com/sjoleee/",
-      "repoUrl": "https://github.com/sjoleee/",
+      "name": "DX Meta Factory",
+      "description": "삼성전자 전 법인 디지털 트윈 공장 데이터 통합 관제 플랫폼 (DMF). 약 1,600명 임직원이 사용하며 이재용 회장·베트남 대통령 국빈 방문 시연이 진행된 미션 크리티컬 시스템.",
+      "repoUrl": "",
       "isTeam": true,
-      "period": ["2022. 07", "2022. 09"],
-      "stack": ["사용한 기술을 적어주세요", "React.js", "JavaScript", "styled-components", "Recoil"],
-      "imgSrc": "/projects/soundok.jpg"
+      "period": ["2024. 04", "현재"],
+      "stack": [
+        "Vue.js",
+        "Node.js",
+        "Spring Boot",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "Samsung Cloud Platform",
+        "Samsung Knox API"
+      ],
+      "imgSrc": "/company/samsung.jpg",
+      "gallery": [
+        {
+          "url": "https://www.samsung-dxrecruit.com/dept/detail/C0006",
+          "images": [
+            "/projects/dxfactory/digital-twin.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": 1,
-      "name": "첫번째 개인 프로젝트",
-      "description": "프로젝트에 대한 간단한 설명을 적을 수 있습니다. 어떤 프로젝트인지 주제나 강조하고 싶은 부분을 적어보세요.",
-      "webUrl": "https://github.com/sjoleee/",
-      "repoUrl": "https://github.com/sjoleee/",
-      "isTeam": false,
-      "period": ["2022. 10", "2022. 11"],
-      "stack": ["JavaScript", "HTML/CSS"]
-    },
+      "name": "Soundok",
+      "description": "통합 플레이리스트 공유 커뮤니티 플랫폼. 누적 사용자 9만 명 규모이며 투자 유치 후 법인 설립을 진행 중입니다. AI 의미 검색 엔진과 다국어 i18n 파이프라인을 풀스택으로 설계·구현했습니다.",
+      "repoUrl": "",
+      "appStoreUrl": "https://apps.apple.com/kr/app/%EC%82%AC%EC%9A%B4%EB%8F%85/id6520396047",
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.koivis.soundok&hl=ko",
+      "isTeam": true,
+      "period": ["2024. 02", "현재"],
+      "stack": [
+        "FastAPI",
+        "MariaDB",
+        "Weaviate",
+        "Gemini API",
+        "ReAct RAG",
+        "React",
+        "Zustand",
+        "Docker Compose",
+        "GitHub Actions",
+        "AWS EC2"
+      ],
+      "imgSrc": "/projects/soundok.jpg",
+      "gallery": [
         {
-      "id": 1,
-      "name": "첫번째 개인 프로젝트",
-      "description": "프로젝트에 대한 간단한 설명을 적을 수 있습니다. 어떤 프로젝트인지 주제나 강조하고 싶은 부분을 적어보세요.",
-      "webUrl": "https://github.com/sjoleee/",
-      "repoUrl": "https://github.com/sjoleee/",
-      "isTeam": false,
-      "period": ["2022. 10", "2022. 11"],
-      "stack": ["JavaScript", "HTML/CSS"]
+          "url": "https://soundok.music/chatbot",
+          "images": [
+            "/projects/soundok/soundok-chatbot1.png",
+            "/projects/soundok/soundok-chatbot2.png"
+          ]
+        }
+      ]
     },
+    {
+      "id": 2,
+      "name": "잘나왔닷",
+      "description": "SK텔레콤 FLY AI 최종 프로젝트. 단체사진에서 각자 마음에 드는 얼굴을 골라 자동 합성하는 모바일 앱으로, SK텔레콤 임원진에게 시연했습니다.",
+      "repoUrl": "",
+      "isTeam": true,
+      "period": ["2023. 01", "2023. 02"],
+      "stack": [
+        "React Native",
+        "Python",
+        "Flask",
+        "OpenCV",
+        "SeamlessClone",
+        "AWS S3"
+      ],
+      "imgSrc": "/projects/jalnawatdot.png",
+      "gallery": [
         {
-      "id": 1,
-      "name": "첫번째 개인 프로젝트",
-      "description": "프로젝트에 대한 간단한 설명을 적을 수 있습니다. 어떤 프로젝트인지 주제나 강조하고 싶은 부분을 적어보세요.",
-      "webUrl": "https://github.com/sjoleee/",
-      "repoUrl": "https://github.com/sjoleee/",
-      "isTeam": false,
-      "period": ["2022. 10", "2022. 11"],
-      "stack": ["JavaScript", "HTML/CSS"]
+          "images": [
+            "/projects/jalnawatdot/description.png",
+            "/projects/jalnawatdot/poster.png"
+          ]
+        },
+        "/projects/jalnawatdot/demo.mp4"
+      ]
     }
   ],
 
   "activity": [
     {
       "id": 0,
-      "name": "첫번째 활동",
-      "period": ["2022. 06", "2022. 08"],
-      "description": "첫번째 활동에 대한 간략한 설명"
+      "name": "메타넷디지털 채용연계형 백엔드 개발자 교육 과정 (KOSA)",
+      "period": ["2023. 11", "2024. 02"],
+      "description": "Java / JavaScript 실습, Vue.js · Spring Boot 교육 및 팀 프로젝트 진행. 인턴십 팀별 프로젝트 최우수상 수상."
     },
     {
       "id": 1,
-      "name": "두번째 활동",
-      "period": ["2022. 06", "2022. 08"],
-      "description": "두번째 활동에 대한 간략한 설명"
+      "name": "SKT FLY AI",
+      "period": ["2022. 12", "2023. 02"],
+      "description": "Python 데이터 분석·시각화, TensorFlow 모델 학습. 최종 프로젝트 \"잘나왔닷\" AI 사진 편집 앱 구현 및 SK텔레콤 임원 시연."
+    },
+    {
+      "id": 2,
+      "name": "AI 미디어파사드 드론 (휴먼로봇전공 학부연구생)",
+      "period": ["2019. 03", "2023. 12"],
+      "description": "드론 카메라 RTSP를 통한 Flask 백엔드 실시간 통신, YOLOv5 Segmentation으로 건물 외부 형상에 이미지 합성 시각화 구현."
     }
   ],
 
   "education": [
     {
       "id": 0,
-      "name": "첫번째 교육",
-      "period": ["2013. 02", "2020. 02"],
-      "description": "첫번째 교육에 대한 간략한 설명"
-    },
-    {
-      "id": 1,
-      "name": "두번째 교육",
-      "period": ["2013. 02", "2020. 02"],
-      "description": "두번째 교육에 대한 간략한 설명"
+      "name": "대진대학교 휴먼로봇융합전공",
+      "period": ["2018. 03", "2024. 02"],
+      "description": "학점 3.71 / 4.5"
     }
   ],
 
   "certificate": [
     {
       "id": 0,
-      "name": "Microsoft Azure Fundementals AI-900",
-      "date": "2023. 01. 28",
-      "organizer": "Microsoft"
+      "name": "SQL 개발자 (SQLD)",
+      "date": "2025. 09",
+      "organizer": "한국데이터산업진흥원"
     },
     {
       "id": 1,
-      "name": "SQLD",
-      "date": "2025. 09. 28",
-      "organizer": "한국데이터산업진흥원"
+      "name": "Microsoft Azure AI Fundamentals (AI-900)",
+      "date": "2023. 01",
+      "organizer": "Microsoft"
     }
   ],
 
   "award": [
     {
-      "id": 0,
-      "name": "KINTEX 2022 공학 페스티벌 성균관대학교 디지털 헬스케어 동상",
-      "date": "2022. 11. 28",
-      "organizer": "산업통상자원부",
-      "description": "KINTEX Engineering Education FESTA 2022"
+      "id": 1,
+      "name": "수도기계화보병사단장 표창",
+      "date": "2021. 11",
+      "organizer": "수도기계화보병사단",
+      "description": "취사병 전원 손목터널증후군 발현으로 인한 공백 상황에서 통신병 신분으로 자원하여 일일 약 400인분 급식 2명에서 운영. 공로를 인정받아 당시 부대 단 2명에게만 사단장 시계 표창 수여."
     },
     {
-      "id": 0,
-      "name": "경기콘텐츠진흥원 & 경기문화창조허브 콘텐츠 + 제조 해커톤(메이커톤) 금상",
-      "date": "2022. 09. 28",
+      "id": 2,
+      "name": "KINTEX 공학 페스티벌 디지털 헬스케어 부문 동상",
+      "date": "2022. 11",
+      "organizer": "산업통상자원부",
+      "description": "성균관대학교 디지털 헬스케어 부문 동상 수상."
+    },
+    {
+      "id": 3,
+      "name": "콘텐츠 + 제조 해커톤(메이커톤) 금상",
+      "date": "2022. 09",
       "organizer": "경기콘텐츠진흥원 & 경기문화창조허브",
       "description": ""
     }

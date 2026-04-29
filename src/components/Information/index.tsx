@@ -3,7 +3,6 @@ import Image from "next/image";
 import ContactItem from "../ContactItem";
 import Introduce from "./Introduce";
 
-import idPhoto from "@/assets/images/id_photo/id.jpg";
 import { DataProps } from "@/types";
 
 const Information = ({ information }: Pick<DataProps, "information">) => {
@@ -12,7 +11,7 @@ const Information = ({ information }: Pick<DataProps, "information">) => {
       <div className="flex items-center gap-8">
         <div className="relative shrink-0 w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden">
           <Image
-            src={idPhoto}
+            src="/id_photo/id.jpg"
             alt={`${information.name} 프로필 사진`}
             fill
             sizes="(max-width: 640px) 128px, 144px"

@@ -1,6 +1,8 @@
+import Gallery from "../Gallery";
+
 import { AwardProps } from "@/types";
 
-const AwardItem = ({ name, date, organizer, description }: AwardProps) => {
+const AwardItem = ({ name, date, organizer, description, gallery }: AwardProps) => {
   return (
     <div className="flex flex-col md:flex-row gap-6 md:gap-0">
       <div className="flex flex-col gap-2">
@@ -10,6 +12,7 @@ const AwardItem = ({ name, date, organizer, description }: AwardProps) => {
         </div>
         <span>{organizer}</span>
         <span className="whitespace-pre-wrap">{`${description}`}</span>
+        <Gallery images={gallery} />
       </div>
     </div>
   );

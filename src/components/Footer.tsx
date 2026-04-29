@@ -17,7 +17,7 @@ const Footer = ({
         ))}
       </div>
       <div className="flex flex-col items-center">
-        <span className="whitespace-pre-wrap text-center">{`Copyright 2023. ${name} All rights reserved.`}</span>
+        <span className="whitespace-pre-wrap text-center">{`Copyright 2026. ${name} All rights reserved.`}</span>
         <a target="_blank" rel="noreferrer" href="https://github.com/sjoleee/very-simple-portfolio">
           Powered by very-simple-portfolio
         </a>

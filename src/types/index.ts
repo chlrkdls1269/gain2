@@ -15,17 +15,25 @@ export interface WorkExperienceProps {
   imgSrc?: string;
 }
 
+export type GalleryItem =
+  | string
+  | { src: string; url?: string }
+  | { images: string[]; url?: string };
+
 export interface ProjectProps {
   id: number;
   name: string;
   description: string;
   repoUrl: string;
   webUrl?: string;
+  appStoreUrl?: string;
+  playStoreUrl?: string;
   isTeam?: boolean;
   period: string[];
   stack: string[];
   markdown?: string;
   imgSrc?: string;
+  gallery?: GalleryItem[];
 }
 
 export interface AwardProps {
@@ -34,6 +42,15 @@ export interface AwardProps {
   date: string;
   organizer: string;
   description: string;
+  gallery?: GalleryItem[];
+}
+
+export interface CertificateProps {
+  id: number;
+  name: string;
+  date: string;
+  organizer: string;
+  gallery?: GalleryItem[];
 }
 
 export interface DataProps {
@@ -55,11 +72,6 @@ export interface DataProps {
     description: string;
     period: string[];
   }[];
-  certificate: {
-    id: number;
-    name: string;
-    date: string;
-    organizer: string;
-  }[];
+  certificate: CertificateProps[];
   award: AwardProps[];
 }
