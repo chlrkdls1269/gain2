@@ -4,12 +4,34 @@ import { createPortal } from "react-dom";
 
 import { GalleryItem } from "@/types";
 
-type Group = { images: string[]; url?: string };
+type ImageEntry = { src: string; label?: string; description?: string };
+type Group = {
+  images: ImageEntry[];
+  url?: string;
+  label?: string;
+  thumbnail?: string;
+  scrollTo?: string;
+};
+
+const normalizeImage = (
+  img: string | { src: string; label?: string; description?: string },
+): ImageEntry => (typeof img === "string" ? { src: img } : img);
 
 const normalize = (item: GalleryItem): Group => {
-  if (typeof item === "string") return { images: [item] };
-  if ("images" in item) return { images: item.images, url: item.url };
-  return { images: [item.src], url: item.url };
+  if (typeof item === "string") return { images: [{ src: item }] };
+  if ("images" in item)
+    return {
+      images: item.images.map(normalizeImage),
+      url: item.url,
+      label: item.label,
+      thumbnail: item.thumbnail,
+      scrollTo: item.scrollTo,
+    };
+  return {
+    images: [{ src: item.src, label: item.label, description: item.description }],
+    url: item.url,
+    label: item.label,
+  };
 };
 
 const VIDEO_EXT = /\.(mp4|webm|mov|m4v|ogg)$/i;
@@ -56,9 +78,10 @@ const Gallery = ({ images }: { images?: GalleryItem[] }) => {
 
   if (total === 0) return null;
 
-  const currentSrc = currentGroup?.images[active?.image ?? 0];
+  const currentImage = currentGroup?.images[active?.image ?? 0];
+  const currentSrc = currentImage?.src;
 
-  const modal = active && currentGroup && currentSrc && (
+  const modal = active && currentGroup && currentImage && currentSrc && (
     <div
       className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-[fadeIn_.15s_ease-out]"
       onClick={() => setActive(null)}
@@ -93,50 +116,52 @@ const Gallery = ({ images }: { images?: GalleryItem[] }) => {
           </button>
         </div>
 
-        <div className="relative bg-gray-50 overflow-hidden">
-          {isVideo(currentSrc) ? (
-            <video
-              key={`${active.group}-${active.image}`}
-              src={currentSrc}
-              controls
-              autoPlay
-              playsInline
-              className="block w-full h-auto max-h-[60vh] object-contain mx-auto bg-black"
-              style={
-                active.dir
-                  ? {
-                      animation: `${
-                        active.dir === "next" ? "slideInRight" : "slideInLeft"
-                      } .25s ease-out`,
-                    }
-                  : undefined
-              }
-            />
-          ) : (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={`${active.group}-${active.image}`}
-              src={currentSrc}
-              alt=""
-              className="block w-full h-auto max-h-[60vh] object-contain mx-auto"
-              style={
-                active.dir
-                  ? {
-                      animation: `${
-                        active.dir === "next" ? "slideInRight" : "slideInLeft"
-                      } .25s ease-out`,
-                    }
-                  : undefined
-              }
-            />
-          )}
+        <div className="relative bg-gray-50">
+          <div className="max-h-[65vh] overflow-y-auto toss-scrollbar">
+            {isVideo(currentSrc) ? (
+              <video
+                key={`${active.group}-${active.image}`}
+                src={currentSrc}
+                controls
+                autoPlay
+                playsInline
+                className="block w-full h-auto bg-black"
+                style={
+                  active.dir
+                    ? {
+                        animation: `${
+                          active.dir === "next" ? "slideInRight" : "slideInLeft"
+                        } .25s ease-out`,
+                      }
+                    : undefined
+                }
+              />
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={`${active.group}-${active.image}`}
+                src={currentSrc}
+                alt=""
+                className="block w-full h-auto"
+                style={
+                  active.dir
+                    ? {
+                        animation: `${
+                          active.dir === "next" ? "slideInRight" : "slideInLeft"
+                        } .25s ease-out`,
+                      }
+                    : undefined
+                }
+              />
+            )}
+          </div>
 
           {currentCount > 1 && (
             <>
               <button
                 type="button"
                 onClick={showPrev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/95 hover:bg-white shadow-md text-gray-700"
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/95 hover:bg-white shadow-md text-gray-700"
                 aria-label="이전 이미지"
               >
                 <svg
@@ -156,7 +181,7 @@ const Gallery = ({ images }: { images?: GalleryItem[] }) => {
               <button
                 type="button"
                 onClick={showNext}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/95 hover:bg-white shadow-md text-gray-700"
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/95 hover:bg-white shadow-md text-gray-700"
                 aria-label="다음 이미지"
               >
                 <svg
@@ -176,6 +201,31 @@ const Gallery = ({ images }: { images?: GalleryItem[] }) => {
             </>
           )}
         </div>
+
+        {(currentImage.label || currentImage.description) && (
+          <div
+            key={`meta-${active.group}-${active.image}`}
+            className="px-5 pt-4 text-center shrink-0 bg-white flex flex-col gap-1.5"
+            style={
+              active.dir
+                ? {
+                    animation: "fadeIn .25s ease-out",
+                  }
+                : undefined
+            }
+          >
+            {currentImage.label && (
+              <p className="text-[15px] text-gray-800 font-semibold leading-snug">
+                {currentImage.label}
+              </p>
+            )}
+            {currentImage.description && (
+              <p className="text-[13px] text-gray-600 leading-relaxed whitespace-pre-wrap break-keep">
+                {currentImage.description}
+              </p>
+            )}
+          </div>
+        )}
 
         {currentGroup.url && (
           <div className="px-5 py-5 shrink-0 bg-white">
@@ -227,52 +277,73 @@ const Gallery = ({ images }: { images?: GalleryItem[] }) => {
 
   return (
     <>
-      <div className="flex flex-wrap gap-2 mt-3">
+      <div className="flex flex-wrap gap-3 mt-3">
         {groups.map((group, i) => {
-          const firstSrc = group.images[0];
+          const firstSrc = group.thumbnail ?? group.images[0].src;
           const extra = group.images.length - 1;
           const video = isVideo(firstSrc);
+          const isNav = !!group.scrollTo;
+          const handleClick = () => {
+            if (group.scrollTo) {
+              const target = document.getElementById(group.scrollTo);
+              if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                return;
+              }
+            }
+            setActive({ group: i, image: 0, dir: null });
+          };
           return (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActive({ group: i, image: 0, dir: null })}
-              className="relative w-24 h-24 rounded-md overflow-hidden border border-GRAY_LIGHT dark:border-GRAY_HEAVY hover:opacity-80 transition cursor-zoom-in"
-              aria-label={video ? "동영상 재생" : "이미지 확대"}
-            >
-              {video ? (
-                <>
-                  <video
-                    src={firstSrc}
-                    muted
-                    playsInline
-                    preload="metadata"
-                    className="absolute inset-0 w-full h-full object-cover bg-black"
-                  />
-                  <span className="absolute inset-0 flex items-center justify-center bg-black/30">
-                    <span className="w-7 h-7 rounded-full bg-white/95 flex items-center justify-center shadow">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="text-gray-800 ml-[2px]"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+            <div key={i} className="flex flex-col items-center gap-1.5 w-24">
+              <button
+                type="button"
+                onClick={handleClick}
+                className={`relative w-24 h-24 rounded-md overflow-hidden border border-GRAY_LIGHT dark:border-GRAY_HEAVY hover:opacity-80 transition ${
+                  isNav ? "cursor-pointer" : "cursor-zoom-in"
+                }`}
+                aria-label={
+                  isNav ? "섹션으로 이동" : video ? "동영상 재생" : "이미지 확대"
+                }
+              >
+                {video ? (
+                  <>
+                    <video
+                      src={firstSrc}
+                      muted
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 w-full h-full object-cover bg-black"
+                    />
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/30">
+                      <span className="w-7 h-7 rounded-full bg-white/95 flex items-center justify-center shadow">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="text-gray-800 ml-[2px]"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </span>
                     </span>
+                  </>
+                ) : (
+                  <Image src={firstSrc} alt="" fill sizes="96px" className="object-cover" />
+                )}
+                {!isNav && extra > 0 && (
+                  <span className="absolute top-1.5 right-1.5 bg-black/75 text-white text-[11px] font-bold px-1.5 py-0.5 rounded-full backdrop-blur-sm leading-none">
+                    +{extra}
                   </span>
-                </>
-              ) : (
-                <Image src={firstSrc} alt="" fill sizes="96px" className="object-cover" />
-              )}
-              {extra > 0 && (
-                <span className="absolute top-1.5 right-1.5 bg-black/75 text-white text-[11px] font-bold px-1.5 py-0.5 rounded-full backdrop-blur-sm leading-none">
-                  +{extra}
+                )}
+              </button>
+              {group.label && (
+                <span className="text-[12px] text-gray-700 dark:text-gray-300 text-center leading-tight w-full line-clamp-2 break-keep">
+                  {group.label}
                 </span>
               )}
-            </button>
+            </div>
           );
         })}
       </div>

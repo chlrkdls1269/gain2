@@ -17,8 +17,14 @@ export interface WorkExperienceProps {
 
 export type GalleryItem =
   | string
-  | { src: string; url?: string }
-  | { images: string[]; url?: string };
+  | { src: string; url?: string; label?: string; description?: string }
+  | {
+      images: (string | { src: string; label?: string; description?: string })[];
+      url?: string;
+      label?: string;
+      thumbnail?: string;
+      scrollTo?: string;
+    };
 
 export interface ProjectProps {
   id: number;
@@ -53,6 +59,14 @@ export interface CertificateProps {
   gallery?: GalleryItem[];
 }
 
+export interface ActivityProps {
+  id: number;
+  name: string;
+  description: string;
+  period: string[];
+  gallery?: GalleryItem[];
+}
+
 export interface DataProps {
   resumeTitle: {
     title: string;
@@ -60,12 +74,7 @@ export interface DataProps {
   information: InformationProps;
   workExperience: WorkExperienceProps[];
   project: ProjectProps[];
-  activity: {
-    id: number;
-    name: string;
-    description: string;
-    period: string[];
-  }[];
+  activity: ActivityProps[];
   education: {
     id: number;
     name: string;

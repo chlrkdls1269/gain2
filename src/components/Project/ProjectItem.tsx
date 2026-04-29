@@ -8,6 +8,7 @@ import Links from "./Links";
 import { ProjectProps } from "@/types";
 
 const ProjectItem = ({
+  id,
   name,
   description,
   repoUrl,
@@ -21,7 +22,7 @@ const ProjectItem = ({
   gallery,
 }: ProjectProps) => {
   return (
-    <div className="flex flex-col md:flex-row gap-2 md:gap-0">
+    <div id={`project-${id}`} className="flex flex-col md:flex-row gap-2 md:gap-0 scroll-mt-24">
       <div className="flex flex-col gap-2">
         <div className="flex md:flex-col items-center md:items-start mr-4 gap-6">
           {imgSrc && (

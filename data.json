@@ -28,8 +28,8 @@
     {
       "id": 0,
       "name": "DX Meta Factory",
-      "description": "삼성전자 전 법인 디지털 트윈 공장 데이터 통합 관제 플랫폼 (DMF). 약 1,600명 임직원이 사용하며 이재용 회장·베트남 대통령 국빈 방문 시연이 진행된 미션 크리티컬 시스템.",
-      "repoUrl": "",
+      "description": "삼성전자 전 법인 디지털 트윈 공장 데이터 통합 관제 플랫폼 (DMF).",
+      "webUrl": "https://www.samsung-dxrecruit.com/dept/detail/C0006",
       "isTeam": true,
       "period": ["2024. 04", "현재"],
       "stack": [
@@ -45,7 +45,11 @@
       "imgSrc": "/company/samsung.jpg",
       "gallery": [
         {
-          "url": "https://www.samsung-dxrecruit.com/dept/detail/C0006",
+          "images": [
+            "/projects/dxfactory/ai-factory.jpg"
+          ]
+        },
+        {
           "images": [
             "/projects/dxfactory/digital-twin.jpg"
           ]
@@ -77,9 +81,19 @@
       "gallery": [
         {
           "url": "https://soundok.music/chatbot",
+          "label": "플리 추천 챗봇",
+          "thumbnail": "/projects/soundok/soundok-chatbot2.png",
           "images": [
-            "/projects/soundok/soundok-chatbot1.png",
-            "/projects/soundok/soundok-chatbot2.png"
+            {
+              "src": "/projects/soundok/soundok-chatbot1.png",
+              "label": "자연어 입력",
+              "description": "사용자가 자연어로 듣고 싶은 분위기를 입력합니다."
+            },
+            {
+              "src": "/projects/soundok/soundok-chatbot2.png",
+              "label": "AI 추천 결과",
+              "description": "추천된 플레이리스트는 한 번의 탭으로 저장 / 공유 가능합니다."
+            }
           ]
         }
       ]
@@ -89,6 +103,7 @@
       "name": "잘나왔닷",
       "description": "SK텔레콤 FLY AI 최종 프로젝트. 단체사진에서 각자 마음에 드는 얼굴을 골라 자동 합성하는 모바일 앱으로, SK텔레콤 임원진에게 시연했습니다.",
       "repoUrl": "",
+      "webUrl": "https://www.skttechacademy.com/fly/projects/14?from=%2Ffly%2Fprojects%3Fpage%3D8",
       "isTeam": true,
       "period": ["2023. 01", "2023. 02"],
       "stack": [
@@ -102,34 +117,68 @@
       "imgSrc": "/projects/jalnawatdot.png",
       "gallery": [
         {
+          "label": "프로젝트 소개",
           "images": [
-            "/projects/jalnawatdot/description.png",
+            "/projects/jalnawatdot/demo-poster.jpg",
             "/projects/jalnawatdot/poster.png"
           ]
         },
-        "/projects/jalnawatdot/demo.mp4"
+        {
+          "label": "시연 영상",
+          "images": ["/projects/jalnawatdot/demo.mp4"]
+        }
       ]
     }
   ],
 
   "activity": [
     {
-      "id": 0,
-      "name": "메타넷디지털 채용연계형 백엔드 개발자 교육 과정 (KOSA)",
-      "period": ["2023. 11", "2024. 02"],
-      "description": "Java / JavaScript 실습, Vue.js · Spring Boot 교육 및 팀 프로젝트 진행. 인턴십 팀별 프로젝트 최우수상 수상."
-    },
-    {
       "id": 1,
       "name": "SKT FLY AI",
       "period": ["2022. 12", "2023. 02"],
-      "description": "Python 데이터 분석·시각화, TensorFlow 모델 학습. 최종 프로젝트 \"잘나왔닷\" AI 사진 편집 앱 구현 및 SK텔레콤 임원 시연."
+      "description": "Python 데이터 분석·시각화, TensorFlow 모델 학습. 최종 프로젝트 \"잘나왔닷\" AI 사진 편집 앱 구현 및 SK텔레콤 임원 시연.",
+      "gallery": [
+        {
+          "label": "최종 프로젝트",
+          "scrollTo": "project-2",
+          "images": [
+            "/projects/jalnawatdot/jalnawatdot.png"
+          ]
+        },
+        {
+          "label": "팀 미팅",
+          "images": [
+            "/activities/skt_fly_ai/team_meeting.png"
+          ]
+        },
+        {
+          "label": "SKT AI 교육 수료",
+          "images": [
+            "/activities/skt_fly_ai/education.jpg",
+            "/activities/skt_fly_ai/activity.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": 2,
-      "name": "AI 미디어파사드 드론 (휴먼로봇전공 학부연구생)",
-      "period": ["2019. 03", "2023. 12"],
-      "description": "드론 카메라 RTSP를 통한 Flask 백엔드 실시간 통신, YOLOv5 Segmentation으로 건물 외부 형상에 이미지 합성 시각화 구현."
+      "name": "메타넷디지털 채용연계형 백엔드 개발자 교육 과정 (KOSA)",
+      "period": ["2023. 11", "2024. 02"],
+      "description": "Java / JavaScript 실습, Vue.js · Spring Boot 교육 및 팀 프로젝트 진행. 인턴십 팀별 프로젝트 최우수상 수상.",
+      "gallery": [
+        {
+          "label": "최종 프로젝트",
+          "images": [
+            "/activities/metanet/final-project.jpg"
+          ]
+        },
+        {
+          "label": "메타넷 교육 수료",
+          "images": [
+            "/activities/metanet/education.jpg"
+          ]
+        }
+      ]
     }
   ],
 

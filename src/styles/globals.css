@@ -94,3 +94,40 @@
     opacity: 1;
   }
 }
+
+/* Toss-style overlay scrollbar */
+.toss-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.toss-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.toss-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toss-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.2s;
+}
+
+.toss-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.toss-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Hide Video Speed Controller browser extension overlay */
+vsc-controller,
+.vsc-controller {
+  display: none !important;
+}
