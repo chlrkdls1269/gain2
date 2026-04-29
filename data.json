@@ -1,6 +1,6 @@
 {
   "resumeTitle": {
-    "title": "Ga-In Choi"
+    "title": "Gain Choi"
   },
 
   "information": {
@@ -81,6 +81,24 @@
       "imgSrc": "/projects/soundok/soundok.jpg",
       "gallery": [
         {
+          "label": "플레이리스트 피드",
+          "thumbnail": "/projects/soundok/soundok-thumb.png",
+          "images": [
+            {
+              "src": "/projects/soundok/soundok-app1.png"
+            },
+            {
+              "src": "/projects/soundok/soundok-app2.png"
+            },
+            {
+              "src": "/projects/soundok/soundok-app3.png"
+            },
+            {
+              "src": "/projects/soundok/soundok-app4.png"
+            }
+          ]
+        },
+        {
           "url": "https://soundok.music/chatbot",
           "label": "플리 추천 챗봇",
           "thumbnail": "/projects/soundok/soundok-chatbot2.png",
@@ -102,7 +120,7 @@
     {
       "id": 2,
       "name": "잘나왔닷",
-      "description": "SK텔레콤 FLY AI 최종 프로젝트. 단체사진에서 각자 마음에 드는 얼굴을 골라 자동 합성하는 모바일 앱으로, SK텔레콤 임원진에게 시연했습니다.",
+      "description": "SK텔레콤 FLY AI 최종 프로젝트. 단체사진에서 각자 마음에 드는 얼굴을 골라 자동 합성하는 모바일 앱 서비스입니다.",
       "repoUrl": "",
       "webUrl": "https://www.skttechacademy.com/fly/projects/14?from=%2Ffly%2Fprojects%3Fpage%3D8",
       "isTeam": true,
@@ -186,9 +204,9 @@
   "education": [
     {
       "id": 0,
-      "name": "대진대학교 휴먼로봇융합전공",
+      "name": "대진대학교",
       "period": ["2018. 03", "2024. 02"],
-      "description": "학점 3.71 / 4.5"
+      "description": "휴먼로봇융합전공"
     }
   ],
 
