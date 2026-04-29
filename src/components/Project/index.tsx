@@ -7,7 +7,7 @@ const Project = ({ project }: Pick<DataProps, "project">) => {
   return (
     <div>
       <SectionTitle>Project</SectionTitle>
-      <div className="flex flex-col gap-24">
+      <div className="flex flex-col gap-12">
         {project.map((project) => (
           <ProjectItem key={project.id} {...project} />
         ))}

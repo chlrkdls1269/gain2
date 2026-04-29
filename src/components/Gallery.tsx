@@ -76,6 +76,21 @@ const Gallery = ({ images }: { images?: GalleryItem[] }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active, currentCount]);
 
+  useEffect(() => {
+    if (active === null) return;
+    const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
+    };
+  }, [active]);
+
   if (total === 0) return null;
 
   const currentImage = currentGroup?.images[active?.image ?? 0];
@@ -117,7 +132,7 @@ const Gallery = ({ images }: { images?: GalleryItem[] }) => {
         </div>
 
         <div className="relative bg-gray-50">
-          <div className="max-h-[65vh] overflow-y-auto toss-scrollbar">
+          <div className="max-h-[65vh] overflow-y-auto">
             {isVideo(currentSrc) ? (
               <video
                 key={`${active.group}-${active.image}`}

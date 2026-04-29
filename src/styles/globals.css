@@ -95,22 +95,26 @@
   }
 }
 
-/* Toss-style overlay scrollbar */
-.toss-scrollbar {
+/* Toss-style scrollbar — applied globally */
+html {
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
-.toss-scrollbar::-webkit-scrollbar {
+.dark {
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
-.toss-scrollbar::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.toss-scrollbar::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   border: 3px solid transparent;
@@ -118,11 +122,19 @@
   transition: background-color 0.2s;
 }
 
-.toss-scrollbar::-webkit-scrollbar-thumb:hover {
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.toss-scrollbar::-webkit-scrollbar-corner {
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+::-webkit-scrollbar-corner {
   background: transparent;
 }
 

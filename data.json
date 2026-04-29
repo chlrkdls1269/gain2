@@ -61,6 +61,7 @@
       "name": "Soundok",
       "description": "통합 플레이리스트 공유 커뮤니티 플랫폼. 누적 사용자 9만 명 규모이며 투자 유치 후 법인 설립을 진행 중입니다. AI 의미 검색 엔진과 다국어 i18n 파이프라인을 풀스택으로 설계·구현했습니다.",
       "repoUrl": "",
+      "webUrl": "https://soundok.music",
       "appStoreUrl": "https://apps.apple.com/kr/app/%EC%82%AC%EC%9A%B4%EB%8F%85/id6520396047",
       "playStoreUrl": "https://play.google.com/store/apps/details?id=com.koivis.soundok&hl=ko",
       "isTeam": true,
@@ -77,7 +78,7 @@
         "GitHub Actions",
         "AWS EC2"
       ],
-      "imgSrc": "/projects/soundok.jpg",
+      "imgSrc": "/projects/soundok/soundok.jpg",
       "gallery": [
         {
           "url": "https://soundok.music/chatbot",
@@ -114,7 +115,7 @@
         "SeamlessClone",
         "AWS S3"
       ],
-      "imgSrc": "/projects/jalnawatdot.png",
+      "imgSrc": "/projects/jalnawatdot/jalnawatdot.png",
       "gallery": [
         {
           "label": "프로젝트 소개",
